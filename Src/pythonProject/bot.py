@@ -1,11 +1,11 @@
 import sqlite3
 import telebot
-from telethon import TelegramClient, events
+from telethon import TelegramClient
 
 bot = telebot.TeleBot("5457646039:AAGJfExqkSzflrYfIjMTsszsJYJquYSeE-E")
-#api_id =14123444
-#api_hash = "ecab1808dbe1520bd8e1f165779ec9ef"
-#client = TelegramClient('bot', api_id, api_hash)
+api_id =14123444
+api_hash = "ecab1808dbe1520bd8e1f165779ec9ef"
+client = TelegramClient('bot', api_id, api_hash)
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -38,3 +38,12 @@ def delete(message):
 	pass
 
 bot.infinity_polling()
+
+conn = sqlite3.connect("database2.db.db")
+cursor = conn.cursor()
+cursor.execute("""
+               SELECT botik2.username
+               FROM botik2, language, user_language
+               WHERE (user.id = user_language.user_id AND
+               language.id = user_language.language_id)
+                """).fetchall()
