@@ -1,4 +1,4 @@
-import sqlite3
+'''import sqlite3
 import telebot
 from telethon import TelegramClient
 bot = telebot.TeleBot("5457646039:AAGJfExqkSzflrYfIjMTsszsJYJquYSeE-E")
@@ -43,3 +43,4 @@ def get_text_messages(message):
 
 
 bot.infinity_polling()
+'''
